@@ -1,7 +1,5 @@
 # python-gpio-mysql
 
-
-
 Install docker
 
 ```bash
@@ -12,6 +10,18 @@ Install dependencies
 
 ```bash
 sudo apt-get install docker-compose python3-venv mariadb-server mariadb-client
+```
+
+Pull down the source
+
+```bash
+sudo mkdir /opt/telemetry
+sudo chown pi:pi /opt/telemetry
+git clone https://github.com/jcustenborder/python-gpio-mysql.git /opt/telemetry
+cd /opt/telemetry
+sudo ln telemetry.service /usr/lib/systemd/system/telemetry.service
+sudo systemctl daemon-reload
+sudo systemctl enable telemetry.service
 ```
 
 Setup a python virtual environment. This allows our code to be isolated from anything that happens to python on the system.
@@ -34,5 +44,12 @@ cat telemetry.sql | sudo mysql
 Start the collection process.
 
 ```bash
-./run.sh
+sudo systemctl start telemetry.service
 ```
+
+View the logs for the collection process.
+```bash
+sudo journalctl -u telemetry.service
+```
+
+The collection process should restart when the raspberry pi boots.
