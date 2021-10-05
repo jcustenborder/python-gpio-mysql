@@ -4,6 +4,7 @@ Requires=mariadb.service
 
 [Service]
 ExecStart=/opt/telemetry/run.sh
+WorkingDirectory=/opt/telemetry
 
 [Install]
 WantedBy=multi-user.target
