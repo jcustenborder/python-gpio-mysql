@@ -24,7 +24,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable telemetry.service
 ```
 
-
 Setup a python virtual environment. This allows our code to be isolated from anything that happens to python on the system.
 
 ```bash
@@ -45,5 +44,12 @@ cat telemetry.sql | sudo mysql
 Start the collection process.
 
 ```bash
-./run.sh
+sudo systemctl start telemetry.service
 ```
+
+View the logs for the collection process.
+```bash
+sudo journalctl -u telemetry.service
+```
+
+The collection process should restart when the raspberry pi boots.
