@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  mysql:
+    image: mysql:8.0.26
+    volumes:
+#      - "./data/mysql:/var/lib/mysql"
+      - "./init/sql:/docker-entrypoint-initdb.d"
+    environment:
+      # This is a no no. Most cases you should not check credentials into source control.
+      MYSQL_ROOT_PASSWORD: ldfginsdbgfsldfgb
+    ports:
+      - "3306:3306"
+    restart: always
