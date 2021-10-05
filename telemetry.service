@@ -3,7 +3,7 @@ Description=Telemetry
 Requires=mariadb.service
 
 [Service]
-ExecStart=/opt/telemetry/venv/bin/python /opt/telemetry/collect-telemetry.py
+ExecStart=/opt/telemetry/venv/bin/python3 -u /opt/telemetry/collect-telemetry.py
 WorkingDirectory=/opt/telemetry
 StandardOutput=syslog+console
 
