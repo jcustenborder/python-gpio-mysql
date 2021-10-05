@@ -1,0 +1,9 @@
+[Unit]
+Description=Telemetry
+Requires=mariadb.service
+
+[Service]
+ExecStart=/opt/telemetry/run.sh
+
+[Install]
+WantedBy=multi-user.target
