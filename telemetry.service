@@ -5,6 +5,7 @@ Requires=mariadb.service
 [Service]
 ExecStart=/opt/telemetry/venv/bin/python /opt/telemetry/collect-telemetry.py
 WorkingDirectory=/opt/telemetry
+StandardOutput=syslog+console
 
 [Install]
 WantedBy=multi-user.target

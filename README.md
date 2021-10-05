@@ -19,7 +19,9 @@ sudo mkdir /opt/telemetry
 sudo chown pi:pi /opt/telemetry
 git clone https://github.com/jcustenborder/python-gpio-mysql.git /opt/telemetry
 cd /opt/telemetry
-ln -s telemetry.service /usr/lib/systemd/system/telemetry.service
+sudo ln telemetry.service /usr/lib/systemd/system/telemetry.service
+sudo systemctl daemon-reload
+sudo systemctl enable telemetry.service
 ```
 
 
